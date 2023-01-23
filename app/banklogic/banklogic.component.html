@@ -1,0 +1,56 @@
+<!-- <p>banklogic works!</p> -->
+<h3 class="title">Bank Login Page</h3>
+<div class="center">
+        
+    <div class="container">
+      
+      <div class="text">Login</div>
+<form #f="ngForm" >
+        <div class="data">
+                <label>Account Number</label>
+                <input type="text"  placeholder="Enter Account Number"
+                #account required>
+        </div>
+        <div class="data">
+                <label>Password</label>
+                <input type="password"  placeholder="Enter Password" 
+                #password required>
+        </div>
+
+<div class="btn">
+        <div class="inner"></div>
+<button id="login" type="submit" (click)="onSend(account.value,password.value)">login</button>   
+</div>
+
+
+<div [hidden]="isHidden" >
+        <div class="inner"></div>
+        <input type="number" #credit (click)="onCredit(account.value,password.value,credit.value)" 
+        placeholder="Enter Amount" > &nbsp;
+        <button class="bt1" type="submit" (click)="onCredit(account.value,password.value,credit.value)">Credit</button>
+
+</div>
+<br>
+<div [hidden]="isHidden">
+        <input type="number" #withdraw (click)="onWithdraw(account.value,password.value,withdraw.value)" placeholder="Enter Amount" > &nbsp;
+        <button class="bt2" type="submit" (click)="onWithdraw(account.value,password.value,withdraw.value)">Withdraw</button>
+</div>
+        <div>
+                <button id="login" type="submit" (click)="onSend(account.value,password.value)">Refresh</button> 
+        </div>
+</form>
+<div  [hidden]="isHidden">
+        <h3> {{'Current balance : '+ data}} </h3>
+ </div>
+
+ <div [hidden]="isCredit">
+        <h4>{{'Credit Amount :'+data2}}</h4>
+        <h4>{{'Updated balance : '+ data}}</h4>
+ </div>
+
+ <div [hidden]="isWithdraw">
+        <h4>{{'Withdrawal Amount :'+data3}}</h4>
+        
+ </div>
+</div>
+</div>
